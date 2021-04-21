@@ -1,0 +1,175 @@
+<!index html>
+	<html >
+	<!--From https://codepen.io/frytyler/pen/EGdtg-->
+	<head>
+	  <meta charset="UTF-8">
+	  <title>Credit Status</title>
+	  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+	  
+	</head>
+
+
+
+	<body>
+	 <div class="login">
+		<h1 style="color:Green"><b><center> Predict Credit Status (Good/Bad) </center></b></h1>
+		
+		 
+		<h2 style="color:Maroon;"> Please enter input </h2>
+
+	     <!-- Main Input For Receiving Query to our ML -->
+	    <form action="{{ url_for('predict')}}"method="post">
+	    	
+		<p style="color:blue"><b>Gender:</b></p>
+		<input type="radio" name="Gender" value="1" required="required">
+  		<label for="1">Male</label>
+  		<input type="radio"  name="Gender" value="0" required="required">
+  		<label for="0">Female</label><br>
+  		
+		<p style="color:blue"><b>Age:</b></p>
+		<input type="radio" name="Age" value="1" required="required">
+  		<label for="1">Greater or equal to 26</label>
+  		<input type="radio" name="Age" value="0" required="required">
+  		<label for="0">Less than 26</label><br>
+  		
+		<p style="color:blue"><b>Marital status:</b></p>
+		<input type="radio" name="Marital_Status" value="1" required="required">
+  		<label for="1">Single</label>
+  		<input type="radio" name="Marital_Status" value="0" required="required">
+  		<label for="0">Married/Divorced/Widowed</label><br>
+	    	
+		<p style="color:blue"><b>Duration in months</b></p>
+		<p><input type="number" step="any"  name="NumMonths" placeholder="Number of months" min="0" required="required" /></p>
+	    	
+		<p style="color:blue"><b>Savings less than 500:</b></p>
+		<input type="radio" name="Savings_<500" value="1" required="required">
+  		<label for="1">Yes</label>
+  		<input type="radio" name="Savings_<500" value="0" required="required">
+  		<label for="0">No</label><br>
+
+		<p style="color:blue"><b>Savings none:</b></p>
+		<input type="radio" name="Savings_none" value="1" required="required">
+  		<label for="1">Yes</label>
+  		<input type="radio" name="Savings_none" value="0" required="required">
+  		<label for="0">No</label><br>
+		
+		<p style="color:blue"><b>Number of dependents</b></p>
+		<p><input type="number" step="any"  name="Dependents" placeholder="No.of Dependents" min="0" required="required" /></p>
+	    	
+		<p style="color:blue"><b>Property rented:</b></p>
+		<input type="radio" name="Property_rent" value="1" required="required">
+  		<label for="1">Yes</label>
+  		<input type="radio" name="Property_rent" value="0" required="required">
+  		<label for="0">No</label><br>
+
+		<p style="color:blue"><b>Job management/self-emp/officer/highly qualif:</b></p>
+		<input type="radio" name="Job_management/self-emp/officer/highly qualif emp" value="1" required="required">
+  		<label for="1">Yes</label>
+  		<input type="radio" name="Job_management/self-emp/officer/highly qualif emp" value="0" required="required">
+  		<label for="0">No</label><br>
+
+		<p style="color:blue"><b>Debtors guarantor:</b></p>
+		<input type="radio" name="Debtors_guarantor" value="1" required="required">
+  		<label for="1">Yes</label>
+  		<input type="radio" name="Debtors_guarantor" value="0" required="required">
+  		<label for="0">No</label><br>
+
+		<p style="color:blue"><b>Purpose New car:</b></p>
+		<input type="radio" name="Purpose_CarNew" value="1" required="required">
+  		<label for="1">Yes</label>
+  		<input type="radio" name="Purpose_CarNew" value="0" required="required">
+  		<label for="0">No</label><br>
+
+		<p style="color:blue"><b>Purpose Furniture/equip:</b></p>
+		<input type="radio" name="Purpose_furniture/equip" value="1" required="required">
+  		<label for="1">Yes</label>
+  		<input type="radio" name="Purpose_furniture/equip" value="0"required="required">
+  		<label for="0">No</label><br>
+
+		<p style="color:blue"><b>CreditHistory none/paid:</b></p>
+		<input type="radio" name="CreditHistory_none/paid" value="1" required="required">
+  		<label for="1">Yes</label>
+  		<input type="radio" name="CreditHistory_none/paid" value="0" required="required">
+  		<label for="0">No</label><br>
+
+		<p style="color:blue"><b>Purpose Used Car:</b></p>
+		<input type="radio" name="Purpose_CarUsed" value="1" required="required">
+  		<label for="1">Yes</label>
+  		<input type="radio" name="Purpose_CarUsed" value="0" required="required">
+  		<label for="0">No</label><br>
+
+
+		<p style="color:blue"><b>Enter standard scaled decimal value of Credit amount between 0 to 1</b></p>
+		<p><input type="number" step="any"  name="CreditAmount" placeholder="Credit Amount(standard scaled)" min="0" max="1" required="required" /></p>
+
+		<p style="color:blue"><b>Collateral Real estate:</b></p>
+		<input type="radio" name="Collateral_real estate" value="1"required="required">
+  		<label for="1">Yes</label>
+  		<input type="radio" name="Collateral_real estate" value="0" required="required">
+  		<label for="0">No</label><br>
+
+		<p style="color:blue"><b>Debtors none:</b></p>
+		<input type="radio" name="Debtors_none" value="1" required="required">
+  		<label for="1">Yes</label>
+  		<input type="radio" name="Debtors_none" value="0" required="required">
+  		<label for="0">No</label><br>
+
+		<p style="color:blue"><b>Job unemp/unskilled-non resident:</b></p>
+		<input type="radio" name="Job_unemp/unskilled-non resident" value="1" required="required">
+  		<label for="1">Yes</label>
+  		<input type="radio" name="Job_unemp/unskilled-non resident" value="0" required="required">
+  		<label for="0">No</label><br>
+
+		<p style="color:blue"><b>Purpose others:</b></p>
+		<input type="radio" name="Purpose_others" value="1" required="required">
+  		<label for="1">Yes</label>
+  		<input type="radio" name="Purpose_others" value="0" required="required">
+  		<label for="0">No</label><br>
+
+		<p style="color:blue"><b>CreditHistory other:</b></p>
+		<input type="radio" name="CreditHistory_other" value="1" required="required">
+  		<label for="1">Yes</label>
+  		<input type="radio" name="CreditHistory_other" value="0" required="required">
+  		<label for="0">No</label><br>
+
+		
+		<p style="color:blue"><b>Pay back percent:</b></p>
+	    	<p><input type="number" step="any"  name="PayBackPercent" placeholder="Pay back percent" min="0" required="required" /></p>
+	    	
+		<p style="color:blue"><b>Collateral unknown/none:</b></p>
+		<input type="radio" name="Collateral_unknown/none" value="1" required="required">
+  		<label for="1">Yes</label>
+  		<input type="radio" name="Collateral_unknown/none" value="0" required="required">
+  		<label for="0">No</label><br>
+
+		<p style="color:blue"><b>Purpose Education:</b></p>
+		<input type="radio" name="Purpose_education" value="1" required="required">
+  		<label for="1">Yes</label>
+  		<input type="radio" name="Purpose_education" value="0" required="required">
+  		<label for="0">No</label><br>
+
+		
+	
+       <center><button type="submit" class="btn btn-primary btn-block btn-lg">Predict</button></center><br>
+	<center><button type="reset">Reset the form</button><br><br></center>
+		<br>
+	
+
+	    </form>
+	
+
+	   <br>
+	   <br>
+		
+	   <br><p><center><h2>{{ prediction_text }}</h2></center></p>
+	
+
+	 </div>
+	
+		
+	</body>
+	</html>
+
