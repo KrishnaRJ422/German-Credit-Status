@@ -38,9 +38,9 @@ def predict():
     output = round(prediction[0], 2)
     
     if output==1:
-        return render_template('index - Copy.html', prediction_text='Good score')
+        return render_template('index - Copy.html', prediction_text='Good credit score')
     elif output==0:
-        return render_template('index - Copy.html', prediction_text='Bad score')
+        return render_template('index - Copy.html', prediction_text='Bad credit score')
     else:
         return render_template('index - Copy.html', prediction_text='Please enter input values') 
      
