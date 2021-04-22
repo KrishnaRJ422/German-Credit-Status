@@ -2,7 +2,7 @@
 
 Automated Credit score status application using random forest method in python which is deployed to cloud using heroku, flask.
 
-In this model, age is the protected attribute. Out of multiple optimal debiased models and ML models compared, DIR random forest model is deployed.
+In this model, age is the protected attribute. Out of multiple optimal debiased models and ML models compared, DIR random forest grid search CV model is deployed.
 
 Link to wholistic study: https://github.com/KrishnaRJ422/Explainability_Bias_Fairness-in-AI
 
