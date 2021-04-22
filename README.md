@@ -1,9 +1,11 @@
-# Real time credit card fraud detection api
+# Real time application to know the goodness of credit score (good/bad credit score)
 
-Automated Credit card fraud detection application using XGBoost method in python which is deployed to cloud using heroku, flask.
+Automated Credit score status application using random forest method in python which is deployed to cloud using heroku, flask.
 
-Link to comparative study: https://github.com/KrishnaRJ422/credit-card-fraud-detection
+In this model, age is the protected attribute. Out of multiple optimal debiased models and ML models compared, DIR random forest model is deployed.
+
+Link to wholistic study: https://github.com/KrishnaRJ422/Explainability_Bias_Fairness-in-AI
 
 Reference: https://www.youtube.com/watch?v=mrExsjcvF4o
 
-Link to my fraud detection application https://credit-fraud-detection.herokuapp.com/
+Link to my fraud detection application https://credit-score-status.herokuapp.com/
