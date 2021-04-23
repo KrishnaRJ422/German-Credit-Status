@@ -25,7 +25,7 @@ np.random.seed(0)
 
 ## <font color='crimson'> Importing source dataset </font>
 
-German_df = pd.read_csv('C:/Users/krish/Downloads/German-reduced.csv')
+German_df = pd.read_csv('German-reduced.csv')
 
 print(German_df.shape)
 print (German_df.columns)
