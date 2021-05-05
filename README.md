@@ -8,4 +8,5 @@ Link to wholistic study: https://github.com/KrishnaRJ422/Explainability_Bias_Fai
 
 Reference: https://www.youtube.com/watch?v=mrExsjcvF4o
 
-Link to my fraud detection application https://credit-score-status.herokuapp.com/
+Link to my credit status goodness predicting a) heroku web application https://credit-score-status.herokuapp.com/
+                                             b) azure web application https://creditstatus.azurewebsites.net/
