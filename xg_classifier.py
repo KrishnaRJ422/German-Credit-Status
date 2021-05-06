@@ -25,7 +25,7 @@ from sklearn.model_selection import GridSearchCV
 #!pip install eli5
 #!pip install BlackBoxAuditing
 
-German_df = pd.read_csv('C:/Users/krish/Downloads/German-reduced_jp.csv')
+German_df = pd.read_csv('German-reduced_jp.csv')
 
 print(German_df.shape)
 print (German_df.columns)
