@@ -11,7 +11,7 @@ root.addHandler(handler)
 
 app = Flask(__name__, template_folder='templates')
 app.config['EXPLAIN_TEMPLATE_LOADING'] = True
-model = pickle.load(open('xg_hp_dir_age_debiased.pkl', 'rb'))
+model = pickle.load(open('xg_hp_dir_age_debiased_upd.pkl', 'rb'))
 
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
@@ -29,11 +29,10 @@ def predict():
     print('Enter input values')
     int_features = [float(x) for x in request.form.values()]
     final_features = pd.DataFrame([int_features])
-    final_features.columns=['Gender', 'Age', 'Marital_Status', 'CurrentAcc_None',
-       'CurrentAcc_LT200', 'Savings_LT500', 'CreditHistory_none/paid',
-       'Debtors_co-applicant', 'Job_unskilled-resident', 'NumMonths',
-       'Telephone', 'Purpose_education', 'Purpose_furniture/equip',
-       'CreditAmount', 'Foreignworker', 'Debtors_guarantor']
+    final_features.columns=['CurrentAcc_None', 'NumMonths', 'CreditHistory_Delay',
+       'CreditHistory_none/paid', 'Collateral_savings/life_insurance',
+       'CurrentAcc_GE200', 'Purpose_repairs', 'Purpose_radio/tv', 'Gender',
+       'Age']
     prediction = model.predict(np.array(final_features))
     output = round(prediction[0], 2)
     
