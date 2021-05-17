@@ -296,11 +296,10 @@ xg_transf_dir = model_xg.fit(data_transf_train_xg_dir.features,data_transf_train
 
 import numpy as np
 import pickle
-pickle.dump(xg_transf_dir,open('xg_hp_dir_age_debiased.pkl','wb'))
-xg_dir_model_age=pickle.load(open('xg_hp_dir_age_debiased.pkl','rb'))
+pickle.dump(xg_transf_dir,open('xg_hp_dir_age_debiased_upd.pkl','wb'))
+xg_dir_model_age=pickle.load(open('xg_hp_dir_age_debiased_upd.pkl','rb'))
 data_orig_test.features[0]
-array([ "0", "36",  "0",  "1",  "0",  "1",  "0",  "1",  "1",  "0"    ])
 data_orig_test.labels[0].ravel()
 data_orig_test.features[0]
-pred=xg_transf_dir.predict(np.array([[ "1"        ,  "0"        ,  "1"        , "0"        ,  "0"        ,                               "1"        ,  "1"        ,  "0"        ,  "0"        ,  "36"        ,   "0"        ,  "0"        ,  "0"        ,  "0.30802245"  ,  "1",          "0"      ]]))
+pred=xg_transf_dir.predict(np.array([[ "0", "36",  "0",  "1",  "0",  "1",  "0",  "1",  "1",  "0"    ]]))
 pred[0]
